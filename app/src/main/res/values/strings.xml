@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Sport 24/7</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="navigation_gallery">Галерея</string>
+    <string name="navigation_players">Игроки</string>
+    <string name="navigation_rules">Правила</string>
+    <string name="basketball">Баскетбол</string>
+    <string name="football">Футбол</string>
+</resources>
