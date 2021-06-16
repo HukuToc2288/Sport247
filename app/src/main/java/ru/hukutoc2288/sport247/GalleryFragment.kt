@@ -1,6 +1,5 @@
-package ru.hukutoc2288.sport247.ui.notifications
+package ru.hukutoc2288.sport247
 
-import android.content.Context
 import android.content.res.AssetManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -9,16 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import ru.hukutoc2288.sport247.R
-import ru.hukutoc2288.sport247.Sports
-import ru.hukutoc2288.sport247.readFromFile
 import java.io.InputStream
 
 class GalleryFragment : Fragment() {
@@ -29,7 +21,6 @@ class GalleryFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_gallery, container, false)
         val galleryRecyclerView: RecyclerView = root.findViewById(R.id.gallery_recycler)
         currentSport = arguments?.getInt(Sports.EXTRA_NAME) ?: Sports.FOOTBALL
-
 
         val galleryList = ArrayList<GalleryListItem>()
         val path = if (currentSport == Sports.FOOTBALL) "football_images" else "basketball_images"
@@ -44,13 +35,12 @@ class GalleryFragment : Fragment() {
         return root
     }
 
-    fun buildGalleryItem(imageName: String): GalleryListItem{
+    private fun buildGalleryItem(imageName: String): GalleryListItem {
         val assetManager: AssetManager = activity!!.assets
 
         val istr: InputStream = assetManager.open(imageName)
         val bitmap = BitmapFactory.decodeStream(istr)
-        val item = GalleryListItem(bitmap)
-        return item
+        return GalleryListItem(bitmap)
     }
 
     class GalleryRecyclerAdapter(private val gallery: List<GalleryListItem>) :

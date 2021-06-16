@@ -7,19 +7,19 @@
 
     <fragment
             android:id="@+id/navigation_rules"
-            android:name="ru.hukutoc2288.sport247.ui.home.HomeFragment"
+            android:name="ru.hukutoc2288.sport247.RulesFragment"
             android:label="@string/navigation_rules"
             tools:layout="@layout/fragment_rules"/>
 
     <fragment
             android:id="@+id/navigation_players"
-            android:name="ru.hukutoc2288.sport247.ui.dashboard.PlayersFragment"
+            android:name="ru.hukutoc2288.sport247.PlayersFragment"
             android:label="@string/navigation_players"
             tools:layout="@layout/fragment_players"/>
 
     <fragment
             android:id="@+id/navigation_gallery"
-            android:name="ru.hukutoc2288.sport247.ui.notifications.GalleryFragment"
+            android:name="ru.hukutoc2288.sport247.GalleryFragment"
             android:label="@string/navigation_gallery"
             tools:layout="@layout/fragment_gallery"/>
 </navigation>

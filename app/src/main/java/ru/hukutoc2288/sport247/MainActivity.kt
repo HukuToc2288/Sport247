@@ -9,23 +9,17 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import ru.hukutoc2288.sport247.ui.dashboard.PlayersFragment
-import ru.hukutoc2288.sport247.ui.home.HomeFragment
-import ru.hukutoc2288.sport247.ui.notifications.GalleryFragment
-import java.io.InputStream
 import java.io.InputStreamReader
 import java.nio.charset.Charset
-import java.nio.charset.StandardCharsets
 
 fun readFromFile(fileName: String?, context: Context): String {
-    var inputStream: InputStream? = null
-    var inputStreamReader: InputStreamReader? = null
-    inputStream = context.resources.assets.open(fileName!!, 0)
-    inputStreamReader = InputStreamReader(inputStream)
+    val inputStream = context.resources.assets.open(fileName!!, 0)
+    val inputStreamReader = InputStreamReader(inputStream)
     val data = ByteArray(inputStream.available())
     inputStream.read(data)
     inputStreamReader.close()
     inputStream.close()
+    // using legacy api to support pre-kitkat
     return String(data, Charset.forName("UTF-8"))
 }
 
@@ -36,9 +30,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
         currentSport = intent.getIntExtra(Sports.EXTRA_NAME, Sports.FOOTBALL)
         val pager = findViewById<ViewPager2>(R.id.pager)
         val bottomNavigation = findViewById<BottomNavigationView>(R.id.nav_view)
@@ -72,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         override fun getItemCount(): Int = 3
         override fun createFragment(position: Int): Fragment {
             val fragment = when (position) {
-                0 -> HomeFragment()
+                0 -> RulesFragment()
                 1 -> PlayersFragment()
                 else -> GalleryFragment()
             }

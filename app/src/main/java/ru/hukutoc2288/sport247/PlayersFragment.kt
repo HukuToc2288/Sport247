@@ -1,10 +1,9 @@
-package ru.hukutoc2288.sport247.ui.dashboard
+package ru.hukutoc2288.sport247
 
 import android.content.Context
 import android.content.res.AssetManager
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,9 +12,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import ru.hukutoc2288.sport247.R
-import ru.hukutoc2288.sport247.Sports
-import ru.hukutoc2288.sport247.readFromFile
 import java.io.InputStream
 
 
@@ -26,7 +22,6 @@ class PlayersFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val root = inflater.inflate(R.layout.fragment_players, container, false)
         val playersRecyclerView: RecyclerView = root.findViewById(R.id.players_recycler)
-        val assetManager: AssetManager = activity!!.assets
         currentSport = arguments?.getInt(Sports.EXTRA_NAME) ?: Sports.FOOTBALL
 
         val playersList = ArrayList<PlayerListItem>()
