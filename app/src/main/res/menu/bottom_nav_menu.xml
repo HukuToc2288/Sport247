@@ -4,19 +4,19 @@
 
     <item
             android:id="@+id/navigation_rules"
-            android:icon="@drawable/ic_home_black_24dp"
+            android:icon="@drawable/ic_navigation_rules"
             android:title="@string/navigation_rules"
             />
 
     <item
             android:id="@+id/navigation_players"
-            android:icon="@drawable/ic_dashboard_black_24dp"
+            android:icon="@drawable/ic_navigation_players"
             android:title="@string/navigation_players"
             />
 
     <item
             android:id="@+id/navigation_gallery"
-            android:icon="@drawable/ic_notifications_black_24dp"
+            android:icon="@drawable/ic_navigation_gallery"
             android:title="@string/navigation_gallery"
             />
 
